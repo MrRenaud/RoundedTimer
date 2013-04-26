@@ -1,0 +1,59 @@
+﻿<UserControl
+    x:Class="RoundedTimer.RoundedTimer"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:RoundedTimer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    DataContext="{Binding RelativeSource={RelativeSource Mode=Self}}"
+    mc:Ignorable="d"
+    d:DesignHeight="120"
+    d:DesignWidth="120">
+
+    <Viewbox>
+        <Grid Width="120" Height="120">
+            <Path Fill="{Binding ForegroundFill}" Stretch="Fill" Data="M120,60 C120,93.1371 93.1371,120 60,120 C26.8629,120 0,93.1371 0,60 C0,26.8629 26.8629,0 60,0 C93.1371,0 120,26.8629 120,60 z M99,60 C99,81.5391 81.5391,99 60,99 C38.4609,99 21,81.5391 21,60 C21,38.4609 38.4609,21 60,21 C81.5391,21 99,38.4609 99,60 z" Stroke="{Binding ForegroundFill}" UseLayoutRounding="False"  StrokeThickness="0" />
+            <Path Visibility="{Binding FirstQuarterVisibility}" Data="M120,60 C120,93.1371 93.1371,120 60,120 C26.8629,120 0,93.1371 0,60 C0,26.8629 26.8629,0 60,0 C93.1371,0 120,26.8629 120,60 z M99,60 C99,81.5391 81.5391,99 60,99 C38.4609,99 21,81.5391 21,60 C21,38.4609 38.4609,21 60,21 C81.5391,21 99,38.4609 99,60 z" Fill="{Binding BackgroundFill}" Stretch="Fill" Stroke="{Binding StrokeBrush}" UseLayoutRounding="False" StrokeThickness="0">
+                <Path.Clip>
+                    <RectangleGeometry  Rect="60,0,120,60">
+                        <RectangleGeometry.Transform>
+                            <!-- De 0 à -90 ! -->
+                            <SkewTransform CenterX="60" CenterY="60" AngleX="{Binding FirstQuarterAngle}"/>
+                        </RectangleGeometry.Transform>
+                    </RectangleGeometry>
+                </Path.Clip>
+            </Path>
+            <Path Visibility="{Binding SecondQuarterVisibility}" Data="M120,60 C120,93.1371 93.1371,120 60,120 C26.8629,120 0,93.1371 0,60 C0,26.8629 26.8629,0 60,0 C93.1371,0 120,26.8629 120,60 z M99,60 C99,81.5391 81.5391,99 60,99 C38.4609,99 21,81.5391 21,60 C21,38.4609 38.4609,21 60,21 C81.5391,21 99,38.4609 99,60 z" Fill="{Binding BackgroundFill}" Stretch="Fill" Stroke="{Binding StrokeBrush}" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" StrokeThickness="0">
+                <Path.Clip>
+                    <RectangleGeometry  Rect="60,60,120,60">
+                        <RectangleGeometry.Transform>
+                            <!-- De 0 à 90 ! -->
+                            <SkewTransform CenterX="60" CenterY="60" AngleY="{Binding SecondQuarterAngle}"/>
+                        </RectangleGeometry.Transform>
+                    </RectangleGeometry>
+                </Path.Clip>
+            </Path>
+            <Path Visibility="{Binding ThirdQuarterVisibility}" Data="M120,60 C120,93.1371 93.1371,120 60,120 C26.8629,120 0,93.1371 0,60 C0,26.8629 26.8629,0 60,0 C93.1371,0 120,26.8629 120,60 z M99,60 C99,81.5391 81.5391,99 60,99 C38.4609,99 21,81.5391 21,60 C21,38.4609 38.4609,21 60,21 C81.5391,21 99,38.4609 99,60 z" Fill="{Binding BackgroundFill}" Stretch="Fill" Stroke="{Binding StrokeBrush}" RenderTransformOrigin="0.5,0.5" StrokeThickness="0">
+                <Path.Clip>
+                    <RectangleGeometry  Rect="0,60,60,120">
+                        <RectangleGeometry.Transform>
+                            <!-- De 0 à -90 ! -->
+                            <SkewTransform CenterX="60" CenterY="60" AngleX="{Binding ThirdQuarterAngle}"/>
+                        </RectangleGeometry.Transform>
+                    </RectangleGeometry>
+                </Path.Clip>
+            </Path>
+            <Path Visibility="{Binding FourthQuarterVisibility}" Data="M120,60 C120,93.1371 93.1371,120 60,120 C26.8629,120 0,93.1371 0,60 C0,26.8629 26.8629,0 60,0 C93.1371,0 120,26.8629 120,60 z M99,60 C99,81.5391 81.5391,99 60,99 C38.4609,99 21,81.5391 21,60 C21,38.4609 38.4609,21 60,21 C81.5391,21 99,38.4609 99,60 z" Fill="{Binding BackgroundFill}" Stretch="Fill" Stroke="{Binding StrokeBrush}" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5" StrokeThickness="0">
+                <Path.Clip>
+                    <RectangleGeometry  Rect="0,0,60,60">
+                        <RectangleGeometry.Transform>
+                            <!-- De 0 à 90 -->
+                            <SkewTransform CenterX="60" CenterY="60" AngleY="{Binding FourthQuarterAngle}"/>
+                        </RectangleGeometry.Transform>
+                    </RectangleGeometry>
+                </Path.Clip>
+            </Path>
+            <TextBlock Text="{Binding Countdown}" FontSize="20" FontFamily="Segoe UI" Foreground="{Binding TextForeground}" TextAlignment="Center" VerticalAlignment="Center"></TextBlock>
+        </Grid>
+    </Viewbox>
+</UserControl>
